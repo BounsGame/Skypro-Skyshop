@@ -48,6 +48,7 @@ public class ProductBasket {
             System.out.println(basket[i].toString());
         }
         System.out.println("Итого: " + sumPrice());
+        System.out.println("Специальных товаров: " + calculateSpecial());
     }
 
     public boolean checkProduct(String product) {
@@ -65,4 +66,13 @@ public class ProductBasket {
         }
     }
 
+    public int calculateSpecial() {
+        int sum = 0;
+        for (int i = 0; i < quantityProduct(); i++) {
+            if (basket[i].isSpecial()) {
+                sum++;
+            }
+        }
+        return sum;
+    }
 }
