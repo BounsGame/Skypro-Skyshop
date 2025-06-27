@@ -1,10 +1,10 @@
 package org.skypro.skyshop.product;
 
-public class product {
+public class Product {
     private String name;
     private int price;
 
-    public product(int price, String name) {
+    public Product(int price, String name) {
         this.price = price;
         this.name = name;
     }

@@ -1,17 +1,17 @@
 package org.skypro.skyshop.basket;
 
-import org.skypro.skyshop.product.product;
+import org.skypro.skyshop.product.Product;
 
 public class ProductBasket {
     private static int maxProduct = 5;
-    private product[] basket = new product[maxProduct];
+    private Product[] basket = new Product[maxProduct];
 
 
-    public product[] getBasket() {
+    public Product[] getBasket() {
         return basket;
     }
 
-    public void addProduct(product newProduct) {
+    public void addProduct(Product newProduct) {
         for (int i = 0; i < maxProduct; i++) {
             if (basket[i] == null) {
                 basket[i] = newProduct;
