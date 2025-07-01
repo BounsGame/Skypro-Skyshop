@@ -1,10 +1,9 @@
 package org.skypro.skyshop;
 
 import org.skypro.skyshop.basket.ProductBasket;
-import org.skypro.skyshop.product.Product;
-import org.skypro.skyshop.product.SimpleProduct;
-import org.skypro.skyshop.product.DiscountedProduct;
-import org.skypro.skyshop.product.FixPriceProduct;
+import org.skypro.skyshop.product.*;
+
+import java.util.Arrays;
 
 public class App {
     public static void main(String[] args) {
@@ -34,6 +33,15 @@ public class App {
             System.out.println("Тавара нет в корзине");
         }
 
+        SearchEngine catalog = new SearchEngine(7);
+        for (Product basket : basket1.getBasket()) {
+            catalog.add(basket);
+        }
+        Article Monster = new Article("Monster", "Energetic drink with taste of peach");
+        Article Lays = new Article("Lays", "chips with taste of salt");
+        catalog.add(Lays);
+        catalog.add(Monster);
+
         basket1.clearBasket();
         basket1.printContentsBasket();
 
@@ -42,6 +50,10 @@ public class App {
         } else {
             System.out.println("Тавара нет в корзине");
         }
+
+        System.out.println(Arrays.toString(catalog.search("Lays")));
+        System.out.println(Arrays.toString(catalog.search("Monster")));
+        System.out.println(Arrays.toString(catalog.search("fix price")));
 
     }
 }

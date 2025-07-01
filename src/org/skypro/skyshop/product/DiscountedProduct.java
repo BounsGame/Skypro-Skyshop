@@ -24,4 +24,14 @@ public class DiscountedProduct extends Product {
     public boolean isSpecial() {
         return true;
     }
+
+    @Override
+    public String searchTerm() {
+        return "Тип discounter product, название " + name;
+    }
+
+    @Override
+    public String getTypeContent() {
+        return "Тип discounter product";
+    }
 }

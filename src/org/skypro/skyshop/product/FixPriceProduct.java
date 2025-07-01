@@ -21,4 +21,14 @@ public class FixPriceProduct extends Product {
     public boolean isSpecial() {
         return true;
     }
+
+    @Override
+    public String searchTerm() {
+        return "Тип fix price product, название " + name;
+    }
+
+    @Override
+    public String getTypeContent() {
+        return "Тип fix price product";
+    }
 }
