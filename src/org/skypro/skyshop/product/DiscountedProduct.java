@@ -1,8 +1,8 @@
 package org.skypro.skyshop.product;
 
 public class DiscountedProduct extends Product {
-    int basePrice;
-    int discount;
+    private int basePrice;
+    private int discount;
 
     public DiscountedProduct(String name, int basePrice, int discount) {
         super(name);
@@ -25,13 +25,4 @@ public class DiscountedProduct extends Product {
         return true;
     }
 
-    @Override
-    public String searchTerm() {
-        return "Тип discounter product, название " + name;
-    }
-
-    @Override
-    public String getTypeContent() {
-        return "Тип discounter product";
-    }
 }

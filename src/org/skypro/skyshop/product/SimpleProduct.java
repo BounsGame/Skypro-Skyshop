@@ -18,13 +18,4 @@ public class SimpleProduct extends Product {
         return name + ": " + price;
     }
 
-    @Override
-    public String searchTerm() {
-        return "Тип simple product, название " + name;
-    }
-
-    @Override
-    public String getTypeContent() {
-        return "Тип simple product";
-    }
 }

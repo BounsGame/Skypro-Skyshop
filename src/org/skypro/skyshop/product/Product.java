@@ -18,4 +18,13 @@ public abstract class Product implements Searchable {
         return false;
     }
 
+    @Override
+    public String searchTerm() {
+        return "Тип PRODUCT, название " + name;
+    }
+
+    @Override
+    public String getTypeContent() {
+        return "Тип PRODUCT";
+    }
 }
