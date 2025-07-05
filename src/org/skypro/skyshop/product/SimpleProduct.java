@@ -5,6 +5,13 @@ public class SimpleProduct extends Product {
 
     public SimpleProduct(int price, String name) {
         super(name);
+        try {
+            if (price <= 0) {
+                throw new IllegalArgumentException("цена должна быть больше нуля");
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println("цена должна быть больше нуля");
+        }
         this.price = price;
     }
 

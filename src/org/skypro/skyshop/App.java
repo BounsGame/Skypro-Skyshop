@@ -55,5 +55,12 @@ public class App {
         System.out.println(Arrays.toString(catalog.search("Monster")));
         System.out.println(Arrays.toString(catalog.search("fix price")));
 
+        DiscountedProduct russianPotato = new DiscountedProduct("Russian potato", 100, 130);
+        SimpleProduct chicken = new SimpleProduct(230, "");
+        SimpleProduct bubbleGum = new SimpleProduct(-30, "Huba Buba");
+
+        System.out.println(catalog.mostSearchable("Lays"));
+        System.out.println(catalog.mostSearchable("fafasd"));
+
     }
 }

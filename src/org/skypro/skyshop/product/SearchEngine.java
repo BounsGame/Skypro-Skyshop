@@ -30,4 +30,32 @@ public class SearchEngine {
         searchable[counter] = newElement;
         counter++;
     }
+
+    public Searchable mostSearchable(String search) {
+        int i = 0;
+        int order = 0;
+        int max = 0;
+        Searchable find = null;
+        for (; i < counter; i++) {
+            int count = 0;
+            int orderSubstring = searchable[i].searchTerm().indexOf(search, order);
+            while (orderSubstring != -1) {
+                count++;
+                order = orderSubstring + search.length();
+                orderSubstring = searchable[i].searchTerm().indexOf(search, order);
+            }
+            if (max < count) {
+                max = count;
+                find = searchable[i];
+            }
+        }
+        try {
+            if (find == null) {
+                throw new BestResultNotFound("нету лучшего результата");
+            }
+        } catch (BestResultNotFound e) {
+            System.out.println("для " + search + " не нашлось подходящей статьи");
+        }
+        return find;
+    }
 }
