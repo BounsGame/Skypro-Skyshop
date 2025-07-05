@@ -55,10 +55,21 @@ public class App {
         System.out.println(Arrays.toString(catalog.search("Monster")));
         System.out.println(Arrays.toString(catalog.search("fix price")));
 
-        DiscountedProduct russianPotato = new DiscountedProduct("Russian potato", 100, 130);
-        SimpleProduct chicken = new SimpleProduct(230, "");
-        SimpleProduct bubbleGum = new SimpleProduct(-30, "Huba Buba");
-
+        try {
+            DiscountedProduct russianPotato = new DiscountedProduct("Russian potato", 100, 130);
+        } catch (Exception e) {
+            System.out.println("Ошибка создания продукта: " + e.getMessage());
+        }
+        try {
+            SimpleProduct chicken = new SimpleProduct(230, "");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Ошибка создания продукта: " + e.getMessage());
+        }
+        try {
+            SimpleProduct bubbleGum = new SimpleProduct(-30, "Huba Buba");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Ошибка создания продукта: " + e.getMessage());
+        }
         System.out.println(catalog.mostSearchable("Lays"));
         System.out.println(catalog.mostSearchable("fafasd"));
 
