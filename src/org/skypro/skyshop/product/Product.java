@@ -1,11 +1,13 @@
 package org.skypro.skyshop.product;
 
-public class Product {
-    private String name;
-    private int price;
+public abstract class Product implements Searchable {
+    protected String name;
 
-    public Product(int price, String name) {
-        this.price = price;
+
+    public Product(String name) {
+        if (name.isBlank()) {
+            throw new IllegalArgumentException("название не может быть пустым");
+        }
         this.name = name;
     }
 
@@ -13,13 +15,19 @@ public class Product {
         return name;
     }
 
-    public int getPrice() {
-        return price;
+    public abstract int getPrice();
+
+    public boolean isSpecial() {
+        return false;
     }
 
     @Override
-    public String toString() {
-        return name + ": " + price;
+    public String searchTerm() {
+        return "Тип PRODUCT, название " + name;
     }
 
+    @Override
+    public String getTypeContent() {
+        return "Тип PRODUCT";
+    }
 }
